@@ -1,0 +1,34 @@
+import { useEffect, useState } from "react";
+import { Employee } from "../models/Employee";
+import { fetchEmployees } from "../services/employeeService";
+
+function useEmployees() {
+  const [employees, setEmployees] = useState<Employee[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string>("");
+  
+  useEffect(() => {
+    const loadEmployees = async () => {
+      try {
+        const data = await fetchEmployees();
+        setEmployees(data);
+        setError("");
+      } catch (err: any) {
+        setError(
+          err?.response?.data?.message ||
+            err.message ||
+            "Error loading employees"
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadEmployees();
+  }, []);
+
+  return { employees, loading, error };
+}
+
+export default useEmployees;
+
