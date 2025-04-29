@@ -1,11 +1,14 @@
 import EmployeeList from "../components/EmployeeList";
+import { DepartmentProvider } from "../contexts/department/DepartmentProvider";
 
 
 function Home() {
   return (
     <div>
       <h1>Home</h1>
-      <EmployeeList/>
+      <DepartmentProvider>
+        <EmployeeList />
+      </DepartmentProvider>
     </div>
   );
 }
