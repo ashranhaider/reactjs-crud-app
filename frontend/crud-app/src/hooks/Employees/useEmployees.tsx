@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Employee } from "../models/Employee";
-import { fetchEmployees } from "../services/employeeService";
+import { Employee } from "../../models/Employee";
+import { getEmployees } from "../../services/employeeService";
 
 function useEmployees() {
   const [employees, setEmployees] = useState<Employee[]>([]);
@@ -10,7 +10,7 @@ function useEmployees() {
   useEffect(() => {
     const loadEmployees = async () => {
       try {
-        const data = await fetchEmployees();
+        const data = await getEmployees();
         setEmployees(data);
         setError("");
       } catch (err: any) {

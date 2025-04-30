@@ -1,4 +1,4 @@
-import useEmployees from "../hooks/useEmployees";
+import useEmployees from "../hooks/Employees/useEmployees";
 import LoadingSkeleton from './LoadingSkeleton';
 import EmptyState from './EmptyState';
 import './EmployeeList.css';
