@@ -27,7 +27,7 @@ function Home() {
       </div>
 
       <Row className="stats-cards mb-4">
-        <Col md={4}>
+        <Col md={6}>
           <Card className="stat-card">
             <Card.Body>
               <div className="stat-icon">
@@ -38,7 +38,7 @@ function Home() {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={4}>
+        <Col md={6}>
           <Card className="stat-card">
             <Card.Body>
               <div className="stat-icon">
@@ -49,17 +49,7 @@ function Home() {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={4}>
-          <Card className="stat-card">
-            <Card.Body>
-              <div className="stat-icon">
-                <FaUserEdit />
-              </div>
-              <h3>Active Projects</h3>
-              <p className="stat-number">8</p>
-            </Card.Body>
-          </Card>
-        </Col>
+        
       </Row>
 
       {/* all code above is useless and contributes to jut make it look pretty
