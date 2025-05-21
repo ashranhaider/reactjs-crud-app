@@ -9,12 +9,13 @@ import DepartmentModal from "./DepartmentDetailsPopup";
 import { Link } from "react-router";
 import DeleteEmployeePopup from "./deleteEmployeePopup";
 import { deleteEmployee } from "../services/employeeService";
+import { FaEdit, FaTrash, FaBuilding } from 'react-icons/fa';
 
 function EmployeeList() {
   const { employees, loading, error, refetchData } = useEmployees();
 
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [showDeleteDialog, setshowDeleteDialog] = useState<boolean>(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState<boolean>(false);
   const { setSelectedDepartment } = useDepartment();
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
 
@@ -26,20 +27,21 @@ function EmployeeList() {
     setSelectedDepartment(department);
     setShowModal(true);
   };
-  const handleDeleteEmployee = async (employeeId: number) => {
+
+  const handleDeleteEmployee = async () => {
     if (!selectedEmployee) return;
 
     try {
-      await deleteEmployee(selectedEmployee.id); // call API      
-      refetchData(); // refresh the employee list
+      await deleteEmployee(selectedEmployee.id);
+      await refetchData();
     } catch (error) {
-      console.log("Failed to delete employee:", error);
+      console.error("Failed to delete employee:", error);
     } finally {
       setSelectedEmployee(null);
+      setShowDeleteDialog(false);
     }
-    console.log(`Deleting employee with ID: ${employeeId}`);
-    setshowDeleteDialog(false);
-  }
+  };
+
   return (
     <div className="table-responsive">
       <table className="table table-hover">
@@ -56,28 +58,34 @@ function EmployeeList() {
           {employees.map((emp, index) => (
             <tr key={emp.id}>
               <td scope="row">{index + 1}</td>
-              <td>
-                {emp.fullName}</td>
+              <td>{emp.fullName}</td>
               <td>{emp.position}</td>
               <td>
                 <button
-                  className="btn btn-link p-0"
+                  className="btn btn-link p-0 d-flex align-items-center"
                   onClick={() => handleDepartmentClick(emp.department)}
                 >
+                  <FaBuilding className="me-1" />
                   {emp.department.name}
                 </button>
               </td>
               <td>
-                <Link to={`/editemployee/${emp.id}`} className="btn btn-primary" style={{ marginRight: 10 }}>Edit</Link>
-                {/* <Link to={`/deleteemployee/${emp.id}`} className="btn btn-danger">Delete</Link> */}
+                <Link 
+                  to={`/editemployee/${emp.id}`} 
+                  className="btn btn-primary me-2"
+                >
+                  <FaEdit className="me-1" />
+                  Edit
+                </Link>
                 <button
                   className="btn btn-danger"
                   onClick={() => {
                     setSelectedEmployee(emp);
-                    setshowDeleteDialog(true);
+                    setShowDeleteDialog(true);
                   }}
                 >
-                Delete
+                  <FaTrash className="me-1" />
+                  Delete
                 </button>
               </td>
             </tr>
@@ -88,10 +96,9 @@ function EmployeeList() {
       {selectedEmployee && (
         <DeleteEmployeePopup
           employeeName={selectedEmployee.fullName}
-          employeeId={selectedEmployee.id}
           show={showDeleteDialog}
-          onConfirm={() => handleDeleteEmployee(selectedEmployee.id)}
-          onHide={() => setshowDeleteDialog(false)}
+          onConfirm={handleDeleteEmployee}
+          onHide={() => setShowDeleteDialog(false)}
         />
       )}
     </div>

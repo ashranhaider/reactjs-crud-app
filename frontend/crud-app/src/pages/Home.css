@@ -1,0 +1,153 @@
+.home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-section {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    padding: 2rem;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    color: white;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.header-section .text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
+    margin: 0;
+}
+
+.add-employee-btn {
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background-color: white;
+    border-color: white;
+    color: #3498db;
+}
+
+.add-employee-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #2980b9;
+}
+
+/* Stats Cards */
+.stats-cards {
+    margin-top: -1.5rem;
+}
+
+.stat-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background: white;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: #3498db;
+    font-size: 1.5rem;
+}
+
+.stat-card h3 {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.stat-number {
+    color: #3498db;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Table styles */
+.table {
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    color: #2c3e50;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.btn-link {
+    color: #3498db;
+    text-decoration: none;
+    padding: 0;
+}
+
+.btn-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Action buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} 

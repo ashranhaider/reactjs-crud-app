@@ -1,21 +1,18 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import { Employee } from '../models/Employee';
 
 interface DeleteEmployeePopupProps {
     show: boolean;
     onHide: () => void;
-    onConfirm: (id:number) => void;
-    employeeName: string | undefined;
-    employeeId: number | undefined;
+    onConfirm: () => void;
+    employeeName: string;
 }
 
 const DeleteEmployeePopup: React.FC<DeleteEmployeePopupProps> = ({
     show,
     onHide,
     onConfirm,
-    employeeName,
-    employeeId
+    employeeName
 }) => {
     return (
         <Modal show={show} onHide={onHide} centered>
@@ -29,7 +26,7 @@ const DeleteEmployeePopup: React.FC<DeleteEmployeePopupProps> = ({
                 <Button variant="secondary" onClick={onHide}>
                     No
                 </Button>
-                <Button variant="danger" onClick={() => employeeId !== undefined && onConfirm(employeeId)}>
+                <Button variant="danger" onClick={onConfirm}>
                     Yes
                 </Button>
             </Modal.Footer>
