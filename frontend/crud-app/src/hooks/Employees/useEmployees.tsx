@@ -7,27 +7,27 @@ function useEmployees() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
   
-  useEffect(() => {
-    const loadEmployees = async () => {
-      try {
-        const data = await getEmployees();
-        setEmployees(data);
-        setError("");
-      } catch (err: any) {
-        setError(
-          err?.response?.data?.message ||
-            err.message ||
-            "Error loading employees"
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
+  const loadEmployees = async () => {
+    try {
+      const data = await getEmployees();
+      setEmployees(data);
+      setError("");
+    } catch (err: any) {
+      setError(
+        err?.response?.data?.message ||
+        err.message ||
+        "Error loading employees"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     loadEmployees();
   }, []);
 
-  return { employees, loading, error };
+  return { employees, loading, error, refetchData:loadEmployees};
 }
 
 export default useEmployees;
