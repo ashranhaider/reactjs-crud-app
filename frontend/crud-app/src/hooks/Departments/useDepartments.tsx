@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Department } from "../../models/Department";
 import { getDepartments } from "../../services/departmentService";
-function useDepartment() {
+function useDepartments() {
 
     const [departments, setdepartments] = useState<Department[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
@@ -36,4 +36,4 @@ function useDepartment() {
     };
 }
 
-export default useDepartment;
+export default useDepartments;

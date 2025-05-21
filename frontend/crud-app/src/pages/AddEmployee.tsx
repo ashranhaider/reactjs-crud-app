@@ -1,10 +1,10 @@
-import AddEmployeeForm from "../components/AddEmployeeForm";
+import AddEmployeeForm from "../components/EmployeeForm";
 import useAddEmployee from "../hooks/Employees/useAddEmployee";
 import { useNavigate } from "react-router";
 import { addEmployeeViewModel } from "../viewModels/AddEmployeeVM";
-function AddEmployee(){
+function AddEmployee() {
     const navigate = useNavigate();
-    const { addEmployee, loading } = useAddEmployee(); 
+    const { addEmployee, loading } = useAddEmployee();
 
     const handleAddEmployee = async (formData: {
         name: string;

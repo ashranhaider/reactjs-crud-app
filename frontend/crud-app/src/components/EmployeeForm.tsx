@@ -1,23 +1,25 @@
 import { Form } from "react-bootstrap";
 import { Department } from "../models/Department";
-import useDepartment from "../hooks/Departments/useDepartment";
+import useDepartment from "../hooks/Departments/useDepartments";
 import { useState } from "react";
+import { Employee } from "../models/Employee";
 
 type AddEmployeeFormProps = {
-    onSubmit: (employeeData: {
+    onSubmit: (formProps: {
         name: string;
         position: string;
         departmentId: number;
     },
     ) => void,
     formSubmitting?: boolean;
+    employee?: Employee;
 };
-function AddEmployeeForm({ onSubmit, formSubmitting }: AddEmployeeFormProps) {
+function EmployeeForm({ onSubmit, formSubmitting, employee }: AddEmployeeFormProps) {
 
     const { departments, loading, error } = useDepartment();
-    const [name, setName] = useState("");
-    const [position, setPosition] = useState("");
-    const [departmentId, setDepartmentId] = useState<number>(0);
+    const [name, setName] = useState(employee ? employee.fullName : "");
+    const [position, setPosition] = useState(employee ? employee.position : "");
+    const [departmentId, setDepartmentId] = useState<number>(employee ? employee.departmentId : 0);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -53,4 +55,4 @@ function AddEmployeeForm({ onSubmit, formSubmitting }: AddEmployeeFormProps) {
         </>
     );
 }
-export default AddEmployeeForm;
+export default EmployeeForm;
