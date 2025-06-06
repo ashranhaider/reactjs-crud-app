@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import EmployeeList from "../components/EmployeeList";
 import { DepartmentProvider } from "../contexts/department/DepartmentProvider";
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { FaUserPlus, FaUsers, FaBuilding, FaUserEdit } from 'react-icons/fa';
+import { FaUserPlus, FaUsers, FaBuilding } from 'react-icons/fa';
 import './Home.css';
 
 function Home() {
