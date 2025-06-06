@@ -29,6 +29,13 @@ app.MapGet("/api/departments/{id}", async (int id, AppDbContext db) =>
         ? Results.Ok(dept)
         : Results.NotFound());
 
+app.MapPost("/api/departments", async (Department dep, AppDbContext db) =>
+{
+    db.Departments.Add(dep);
+    await db.SaveChangesAsync();
+    return Results.Created($"/api/departments/{dep.Id}", dep);
+});
+
 // --- Employee Endpoints ---
 
 app.MapGet("/api/employees", async (AppDbContext db) =>
