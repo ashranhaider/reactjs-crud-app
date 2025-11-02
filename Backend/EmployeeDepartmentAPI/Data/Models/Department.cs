@@ -11,3 +11,7 @@ public class Department
     [JsonIgnore]
     public ICollection<Employee> Employees { get; set; } = new List<Employee>();
 }
+public class CreateDepartmentDto
+{
+    public string Name { get; set; } = string.Empty;
+}
