@@ -1,8 +1,6 @@
-import { Link } from "react-router";
-import EmployeeList from "../components/EmployeeList";
-import { DepartmentProvider } from "../contexts/department/DepartmentProvider";
+
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { FaUserPlus, FaUsers, FaBuilding } from 'react-icons/fa';
+import { FaUsers, FaBuilding } from 'react-icons/fa';
 import './Home.css';
 
 function Home() {
@@ -16,13 +14,7 @@ function Home() {
               Employee Management
             </h1>
             <p className="text-muted mt-2">Manage your organization's employees efficiently</p>
-          </Col>
-          <Col xs="auto">
-            <Link to="/addemployee" className="btn btn-primary add-employee-btn">
-              <FaUserPlus className="me-2" />
-              Add Employee
-            </Link>
-          </Col>
+          </Col>          
         </Row>
       </div>
 
@@ -55,9 +47,6 @@ function Home() {
       {/* all code above is useless and contributes to jut make it look pretty
       and is geneerated by AI */}
       
-      <DepartmentProvider>
-        <EmployeeList />
-      </DepartmentProvider>
     </Container>
   );
 }

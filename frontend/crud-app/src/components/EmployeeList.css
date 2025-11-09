@@ -1,27 +1,32 @@
-.skeleton-loader {
-  height: 20px;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-  border-radius: 4px;
+/* Section-based layout styles (card-like feel without card markup) */
+.section-header,
+.section-content {
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: .5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  padding: 1rem 1.25rem;
 }
 
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
+.section-header {
+  margin-bottom: 1rem; /* gap between header and table */
 }
 
-.table-responsive {
-  margin: 1rem 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.section-content {
+  margin-top: .5rem;
 }
 
-.table {
-  margin-bottom: 0;
+/* Keep things tidy */
+.employee-table th,
+.employee-table td {
+  vertical-align: middle;
 }
 
+.header-row .btn {
+  white-space: nowrap;
+}
+
+/* Optional: dark header if using Bootstrap 5 without .thead-dark */
+.table thead th {
+  border-bottom: 2px solid rgba(0,0,0,.1);
+}

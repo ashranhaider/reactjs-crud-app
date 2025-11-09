@@ -30,19 +30,14 @@
     align-items: center;
     padding: 10px 25px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    /* keep visual defaults but avoid custom hover animations so Bootstrap handles hover
+       behavior */
     background-color: white;
     border-color: white;
     color: #3498db;
 }
 
-.add-employee-btn:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-color: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    color: #2980b9;
-}
+/* Removed hover transform/transition so default Bootstrap hover is used */
 
 /* Stats Cards */
 .stats-cards {
@@ -114,40 +109,3 @@
     vertical-align: middle;
 }
 
-/* Button styles */
-.btn-primary {
-    background-color: #3498db;
-    border-color: #3498db;
-}
-
-.btn-danger {
-    background-color: #e74c3c;
-    border-color: #e74c3c;
-}
-
-.btn-link {
-    color: #3498db;
-    text-decoration: none;
-    padding: 0;
-}
-
-.btn-link:hover {
-    color: #2980b9;
-    text-decoration: underline;
-}
-
-/* Action buttons */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-} 
