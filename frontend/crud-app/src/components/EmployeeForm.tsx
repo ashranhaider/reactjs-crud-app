@@ -1,6 +1,6 @@
 import { Form, Card, Container, Row, Col } from "react-bootstrap";
 import { Department } from "../models/Department";
-import useDepartment from "../hooks/Departments/useDepartments";
+import useDepartment from "../hooks/Departments/useDepartment";
 import { useState } from "react";
 import { Employee } from "../models/Employee";
 import { FaUser, FaBriefcase, FaBuilding } from 'react-icons/fa';

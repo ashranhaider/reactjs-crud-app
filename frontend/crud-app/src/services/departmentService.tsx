@@ -15,8 +15,8 @@ export async function createDepartment(department: Omit<Department, "id">): Prom
     const response = await apiClient.post<Department>("/departments", department);
     return response.data;
 }
-export async function updateDepartment(id: number, department: Omit<Department, "id">): Promise<Department> {   
-    const response = await apiClient.put<Department>(`/departments/${id}`, department);
+export async function updateDepartment( department: Department): Promise<Department> {   
+    const response = await apiClient.put<Department>(`/departments/${department.id}`, department);
     return response.data;
 }
 export async function deleteDepartment(id: number): Promise<void> {

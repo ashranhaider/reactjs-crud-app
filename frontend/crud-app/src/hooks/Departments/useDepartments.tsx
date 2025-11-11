@@ -1,40 +1,32 @@
 import { useEffect, useState } from "react";
-import { Department } from "../../models/Department";
 import { getDepartments } from "../../services/departmentService";
+import { Department } from "../../models/Department";
+
 function useDepartments() {
+  const [departments, setDepartments] = useState<Department[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string>("");
 
-    const [departments, setdepartments] = useState<Department[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string>("");
+  const fetchDepartments = async () => {
+    setLoading(true);
+    try {
+      const data = await getDepartments();
+      setDepartments(data);
+      setError("");
+    } catch (err: any) {
+      setError(
+        err?.response?.data?.message || err.message || "Error loading departments"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    const fetchDepartments = async () => {
-        try {
-            setLoading(true);
-            const response = await getDepartments();
-            setdepartments(response);
-            setError("");
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } catch (err: any) {
-            setError(
-                err?.response?.data?.message ||
-                err.message ||
-                "Error loading employees"
-            );
-        } finally {
-            setLoading(false);
-        }
-    };
-    useEffect(() => {
+  useEffect(() => {
+    fetchDepartments();
+  }, []);
 
-        fetchDepartments();
-    }, []);
-
-    return {
-        departments,
-        loading,
-        error,
-        refetchDepartments: fetchDepartments,
-    };
+  return { departments, loading, error, refetch: fetchDepartments };
 }
 
 export default useDepartments;

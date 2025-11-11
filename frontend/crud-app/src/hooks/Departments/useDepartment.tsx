@@ -1,0 +1,40 @@
+import { useEffect, useState } from "react";
+import { Department } from "../../models/Department";
+import { getDepartments } from "../../services/departmentService";
+function useDepartments() {
+
+    const [departments, setdepartments] = useState<Department[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string>("");
+
+    const fetchDepartments = async () => {
+        try {
+            setLoading(true);
+            const response = await getDepartments();
+            setdepartments(response);
+            setError("");
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (err: any) {
+            setError(
+                err?.response?.data?.message ||
+                err.message ||
+                "Error loading employees"
+            );
+        } finally {
+            setLoading(false);
+        }
+    };
+    useEffect(() => {
+
+        fetchDepartments();
+    }, []);
+
+    return {
+        departments,
+        loading,
+        error,
+        refetchDepartments: fetchDepartments,
+    };
+}
+
+export default useDepartments;

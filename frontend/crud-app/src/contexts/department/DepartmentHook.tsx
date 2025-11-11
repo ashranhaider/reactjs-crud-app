@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import DepartmentContext from "./DepartmentContext";
 
+// Context API hook to use Department context
+
 export const useDepartment = () => {
   const context = useContext(DepartmentContext);
   if (!context) {

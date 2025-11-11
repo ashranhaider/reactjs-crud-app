@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import useDepartments from "../hooks/Departments/useDepartments";
+import useDepartments from "../hooks/Departments/useDepartment";
 import LoadingSkeleton from "./LoadingSkeleton";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { Department } from "../models/Department";
@@ -22,7 +22,7 @@ function DepartmentList() {
             await deleteDepartment(selectedDepartment.id);
             await refetchDepartments();
         } catch (error) {
-            console.error("Failed to delete employee:", error);
+            console.error("Failed to delete Department:", error);
         } finally {
             setSelectedDepartment(null);
             setShowDeleteDialog(false);
@@ -48,7 +48,7 @@ function DepartmentList() {
 
                                 <td>
                                     <Link
-                                        to={`/editemployee/${dep.id}`}
+                                        to={`/edit-department/${dep.id}`}
                                         className="btn btn-primary me-2"
                                     >
                                         <FaEdit className="me-1" />
