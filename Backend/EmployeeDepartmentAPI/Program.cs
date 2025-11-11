@@ -74,6 +74,19 @@ app.MapGet("/api/employees/{id}", async (int id, AppDbContext db) =>
         ? Results.Ok(emp)
         : Results.NotFound());
 
+// --- Stats Endpoint ---
+app.MapGet("/api/stats", async (AppDbContext db) =>
+{
+    int departmentCount = await db.Departments.CountAsync();
+    int employeeCount = await db.Employees.CountAsync();
+
+    return Results.Ok(new
+    {
+        departmentCount,
+        employeeCount
+    });
+});
+
 app.MapPost("/api/employees", async (Employee emp, AppDbContext db) =>
 {
     db.Employees.Add(emp);

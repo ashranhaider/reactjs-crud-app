@@ -1,9 +1,12 @@
 
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card, Spinner, Alert } from 'react-bootstrap';
 import { FaUsers, FaBuilding } from 'react-icons/fa';
 import './Home.css';
+import useStats from '../hooks/useStats';
 
 function Home() {
+  const { stats, loading, error } = useStats();
+
   return (
     <Container className="home-container py-4">
       <div className="header-section mb-4">
@@ -18,6 +21,10 @@ function Home() {
         </Row>
       </div>
 
+      {error && (
+        <Alert variant="danger">{error}</Alert>
+      )}
+
       <Row className="stats-cards mb-4">
         <Col md={6}>
           <Card className="stat-card">
@@ -26,7 +33,13 @@ function Home() {
                 <FaUsers />
               </div>
               <h3>Total Employees</h3>
-              <p className="stat-number">25</p>
+              <p className="stat-number">
+                {loading ? (
+                  <Spinner animation="border" size="sm" />
+                ) : (
+                  stats?.employeeCount ?? 0
+                )}
+              </p>
             </Card.Body>
           </Card>
         </Col>
@@ -37,16 +50,19 @@ function Home() {
                 <FaBuilding />
               </div>
               <h3>Departments</h3>
-              <p className="stat-number">5</p>
+              <p className="stat-number">
+                {loading ? (
+                  <Spinner animation="border" size="sm" />
+                ) : (
+                  stats?.departmentCount ?? 0
+                )}
+              </p>
             </Card.Body>
           </Card>
         </Col>
         
       </Row>
 
-      {/* all code above is useless and contributes to jut make it look pretty
-      and is geneerated by AI */}
-      
     </Container>
   );
 }
