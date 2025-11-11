@@ -5,7 +5,7 @@ interface DepartmentDetailsModalProps {
   show: boolean;
   onClose: () => void;
 }
-const EmployeeModal = ({ show, onClose }: DepartmentDetailsModalProps) => {
+const DepartmentDetailModal = ({ show, onClose }: DepartmentDetailsModalProps) => {
   const { selectedDepartment } = useDepartment();
 
   return (
@@ -43,4 +43,4 @@ const EmployeeModal = ({ show, onClose }: DepartmentDetailsModalProps) => {
   );
 };
 
-export default EmployeeModal;
+export default DepartmentDetailModal;

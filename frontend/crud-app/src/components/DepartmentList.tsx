@@ -1,12 +1,33 @@
+import { Link } from "react-router";
 import useDepartments from "../hooks/Departments/useDepartments";
 import LoadingSkeleton from "./LoadingSkeleton";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import { Department } from "../models/Department";
+import { useState } from "react";
+import DeletePopup from "./DeletePopup";
+import { deleteDepartment } from "../services/departmentService";
 
 function DepartmentList() {
-    
-    const { departments, loading, error } = useDepartments();
-    
+
+    const { departments, refetchDepartments, loading, error } = useDepartments();
+    const [selectedDepartment, setSelectedDepartment] = useState<Department | null>(null);
+    const [showDeleteDialog, setShowDeleteDialog] = useState<boolean>(false);
+
     if (loading) return <LoadingSkeleton />;
     if (error) return <div className="alert alert-danger" role="alert">{error}</div>;
+
+    const handleDeleteDepartment = async () => {
+        if (!selectedDepartment) return;
+        try {
+            await deleteDepartment(selectedDepartment.id);
+            await refetchDepartments();
+        } catch (error) {
+            console.error("Failed to delete employee:", error);
+        } finally {
+            setSelectedDepartment(null);
+            setShowDeleteDialog(false);
+        }
+    };
 
     return (
         <>
@@ -26,21 +47,38 @@ function DepartmentList() {
                                 <td>{dep.name}</td>
 
                                 <td>
-                                    {/* <Link
+                                    <Link
                                         to={`/editemployee/${dep.id}`}
                                         className="btn btn-primary me-2"
                                     >
                                         <FaEdit className="me-1" />
                                         Edit
-                                    </Link> */}
+                                    </Link>
 
+                                    <button
+                                        className="btn btn-danger"
+                                        onClick={() => {
+                                            setSelectedDepartment(dep);
+                                            setShowDeleteDialog(true);
+                                        }}
+                                    >
+                                        <FaTrash className="me-1" />
+                                        Delete
+                                    </button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
-
+            {selectedDepartment && (
+                <DeletePopup
+                    name={selectedDepartment.name}
+                    show={showDeleteDialog}
+                    onConfirm={handleDeleteDepartment}
+                    onHide={() => setShowDeleteDialog(false)}
+                />
+            )}
         </>
 
     );

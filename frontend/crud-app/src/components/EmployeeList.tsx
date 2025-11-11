@@ -5,8 +5,8 @@ import EmptyState from "./EmptyState";
 import "./EmployeeList.css";
 import { useDepartment } from "../contexts/department/DepartmentHook";
 import { Employee } from "../models/Employee";
-import EmployeeModal from "./DepartmentDetailsPopup";
-import DeleteEmployeePopup from "./deleteEmployeePopup";
+import DepartmentDetailModal from "./DepartmentDetailsPopup";
+import DeletePopup from "./DeletePopup";
 import { deleteEmployee } from "../services/employeeService";
 import { FaEdit, FaTrash, FaBuilding } from "react-icons/fa";
 import { Link } from "react-router";
@@ -98,10 +98,10 @@ function EmployeeList() {
         </div>
       </section>
 
-      <EmployeeModal show={showModal} onClose={() => setShowModal(false)} />
+      <DepartmentDetailModal show={showModal} onClose={() => setShowModal(false)} />
       {selectedEmployee && (
-        <DeleteEmployeePopup
-          employeeName={selectedEmployee.fullName}
+        <DeletePopup
+          name={selectedEmployee.fullName}
           show={showDeleteDialog}
           onConfirm={handleDeleteEmployee}
           onHide={() => setShowDeleteDialog(false)}

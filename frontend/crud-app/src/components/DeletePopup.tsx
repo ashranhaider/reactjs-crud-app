@@ -1,20 +1,20 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { FaExclamationTriangle, FaTimes, FaCheck } from 'react-icons/fa';
-import './DeleteEmployeePopup.css';
+import './DeletePopup.css';
 
 interface DeleteEmployeePopupProps {
     show: boolean;
     onHide: () => void;
     onConfirm: () => void;
-    employeeName: string;
+    name: string;
 }
 
-const DeleteEmployeePopup: React.FC<DeleteEmployeePopupProps> = ({
+const DeletePopup: React.FC<DeleteEmployeePopupProps> = ({
     show,
     onHide,
     onConfirm,
-    employeeName
+    name
 }) => {
     return (
         <Modal show={show} onHide={onHide} centered className="delete-modal">
@@ -26,7 +26,7 @@ const DeleteEmployeePopup: React.FC<DeleteEmployeePopupProps> = ({
             </Modal.Header>
             <Modal.Body className="delete-modal-body">
                 <div className="warning-message">
-                    <p>Are you sure you want to delete <strong>{employeeName}</strong>?</p>
+                    <p>Are you sure you want to delete <strong>{name}</strong>?</p>
                     <p className="text-muted">This action cannot be undone.</p>
                 </div>
             </Modal.Body>
@@ -44,4 +44,4 @@ const DeleteEmployeePopup: React.FC<DeleteEmployeePopupProps> = ({
     );
 };
 
-export default DeleteEmployeePopup;
+export default DeletePopup;

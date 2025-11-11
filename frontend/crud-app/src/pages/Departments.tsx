@@ -12,9 +12,9 @@ function Departments() {
 
                 <div className="header-row d-flex justify-content-between align-items-center">
                     <p className="lead text-muted mb-0">All departments are shown here.</p>
-                    {/* <Link to="/add-department" className="btn btn-primary">
+                    <Link to="/add-department" className="btn btn-primary">
                         Add Department
-                    </Link> */}
+                    </Link>
                 </div>
             </section>
             <section className="section-content">
