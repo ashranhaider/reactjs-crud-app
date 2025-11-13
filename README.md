@@ -1,135 +1,163 @@
-🚀 React CRUD App (Beginner-Friendly Starter Template)
+# 🚀 React CRUD App (Beginner-Friendly Starter Template)
 
-A clean and beginner-friendly React + TypeScript CRUD application built with a flexible and scalable architecture.
+A clean and beginner-friendly **React + TypeScript CRUD application**
+built with a flexible and scalable architecture.\
 This project is perfect for:
 
-Beginners learning React fundamentals
+-   Beginners learning **React fundamentals**
+-   Developers who want a **starter template** with routing, forms,
+    CRUD, context API
+-   Anyone looking for a clean architecture to build on top of
 
-Developers who want a starter template with routing, forms, CRUD, context API
+------------------------------------------------------------------------
 
-Anyone looking for a clean architecture to build on top of
+## 📌 Key Features
 
-📌 Key Features
+-   ✔️ Create, Read, Update, Delete (Employees)\
+-   ✔️ Clean, modular component structure\
+-   ✔️ React Router integration\
+-   ✔️ Context API + Custom Data Hooks\
+-   ✔️ API Integration using Axios\
+-   ✔️ Beginner-friendly, easy to extend\
+-   ✔️ Backend: .NET 8 Web API
 
-✔️ CRUD Operations (Add, Edit, Delete Employees)
+------------------------------------------------------------------------
 
-✔️ Clean Component Architecture
+## 🧰 Tech Stack
 
-✔️ React Router for navigation
+**Frontend:**\
+React (TypeScript), React Router, Context API, Axios
 
-✔️ Context API + Custom Hooks
+**Backend:**\
+.NET 8 Web API, SQL Server
 
-✔️ API Integration using Axios
+------------------------------------------------------------------------
 
-✔️ Beginner-friendly and easy to extend
+# 🖼️ Screenshots (Click to Open)
 
-✔️ .NET 8 Web API backend
+### 🏠 Home Page
 
-🧰 Tech Stack
+![Home Page](frontend/crud-app/public/Screenshots/Home.png)
 
-Frontend:
+------------------------------------------------------------------------
 
-React (TypeScript)
+### ➕ Add Employee Form
 
-React Router
+![Add Employee
+Form](frontend/crud-app/public/Screenshots/add-employee-form.png)
 
-Context API
+------------------------------------------------------------------------
 
-Axios
+### 👥 Employee List
 
-CSS Modules
+![Employee List](frontend/crud-app/public/Screenshots/employee.png)
 
-Backend:
+------------------------------------------------------------------------
 
-.NET 8 Web API
+# 📂 Project Structure
 
-SQL Server
+    reactjs-crud-app/
+    │
+    ├── backend/              # .NET 8 API
+    │
+    └── frontend/
+          └── crud-app/
+                ├── public/
+                │    └── Screenshots/
+                ├── src/
+                │    ├── components/
+                │    ├── hooks/
+                │    ├── context/
+                │    ├── models/
+                │    ├── services/
+                │    └── App.tsx
+                └── package.json
 
-📁 Project Structure
-reactjs-crud-app/
-│
-├── backend/              # .NET Web API
-│
-└── frontend/
-      └── crud-app/
-            ├── public/
-            │    └── Screenshots/
-            ├── src/
-            │    ├── components/
-            │    ├── hooks/
-            │    ├── context/
-            │    ├── models/
-            │    ├── services/
-            │    └── App.tsx
-            └── package.json
+------------------------------------------------------------------------
 
-🖼️ Screenshots (Click to Open)
-🏠 Home Page
-<a href="frontend/crud-app/public/Screenshots/Home.png" target="_blank"> <img src="frontend/crud-app/public/Screenshots/Home.png" width="600" /> </a>
-➕ Add Employee Form
-<a href="frontend/crud-app/public/Screenshots/add-employee-form.png" target="_blank"> <img src="frontend/crud-app/public/Screenshots/add-employee-form.png" width="600" /> </a>
-👥 Employee List
-<a href="frontend/crud-app/public/Screenshots/employee.png" target="_blank"> <img src="frontend/crud-app/public/Screenshots/employee.png" width="600" /> </a>
+# ⚙️ Running the Project
 
-⚙️ Running the Project
-▶️ 1. Run the Backend (.NET 8 API)
+## ▶️ 1. Run the Backend (.NET 8 API)
 
-Go to backend folder:
+Navigate to backend folder:
 
+``` sh
 cd backend
-
+```
 
 Restore dependencies:
 
+``` sh
 dotnet restore
+```
 
+Run:
 
-Run the API:
-
+``` sh
 dotnet run
+```
 
+API usually runs at:
 
-Typically available at:
+    https://localhost:7282
 
-https://localhost:7282
+------------------------------------------------------------------------
 
-▶️ 2. Run the Frontend (React App)
+## ▶️ 2. Run the Frontend (React App)
 
-Navigate to frontend:
+Navigate:
 
+``` sh
 cd frontend/crud-app
+```
 
+Install dependencies:
 
-Install packages:
-
+``` sh
 npm install
+```
 
+Run the app:
 
-Start the app:
-
+``` sh
 npm start
+```
 
+Runs at:
 
-App runs at:
+    http://localhost:3000
 
-http://localhost:3000
+------------------------------------------------------------------------
 
-🎯 Why This App Is a Great Starter Template
+# 🎯 Why This Template Is Great for Beginners
 
-This project covers all fundamental concepts needed by React beginners:
+This project covers all core React concepts beginners must learn:
 
-🧩 Component-based architecture
+-   🧩 Component-based UI\
+-   🔄 Parent → Child → Parent communication\
+-   🧭 Navigation using React Router\
+-   📝 Controlled Forms\
+-   🌐 API integration with Axios\
+-   🧠 Context API for global state\
+-   📁 Clean, scalable project structure
 
-🔄 Parent → Child → Parent communication
+This makes it a perfect **starter template** for building real-world
+apps.
 
-🧭 React Router navigation
+------------------------------------------------------------------------
 
-📝 Form handling (controlled components)
+# 📘 Future Enhancements
 
-🌐 API integration
+-   Toast notifications\
+-   Form validation (React Hook Form)\
+-   Material UI interface\
+-   Pagination & search\
+-   Docker support\
+-   Unit tests with Jest + RTL
 
-🧠 Global state using Context API
+------------------------------------------------------------------------
 
-🔌 Clean separation (hooks, services, models, components)
+# ⭐ Support
 
-This makes it an ideal learning resource for anyone starting with React.
+If this project helped you, please consider giving it a **⭐ star** on
+GitHub!
