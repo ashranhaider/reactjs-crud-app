@@ -50,7 +50,7 @@ Form](frontend/crud-app/public/Screenshots/add-employee-form.png)
 
 ### 👥 Employee List
 
-![Employee List](frontend/crud-app/public/Screenshots/employee.png)
+![Employee List](frontend/crud-app/public/Screenshots/employees.png)
 
 ------------------------------------------------------------------------
 
